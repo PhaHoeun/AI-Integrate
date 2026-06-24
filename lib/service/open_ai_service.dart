@@ -2,16 +2,14 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:dio/dio.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 class GeminiService {
   final Dio dio = Dio();
 
   // Provide the key at build/run time, for example:
   // flutter run --dart-define=GOOGLE_API_KEY=your_key_here
-  static const apiKey = String.fromEnvironment(
-    'GOOGLE_API_KEY',
-    defaultValue: 'AQ.Ab8RN6I4w8bSWbvFJ1-enN9c7GANxbiyrYk_2waDRHD5q-TTKA',
-  );
+  final apiKey = dotenv.get('API_KEY');
 
   Future<Map<String, dynamic>> scanInvoice(File image) async {
     if (apiKey.isEmpty) {
