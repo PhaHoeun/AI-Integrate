@@ -8,10 +8,11 @@ class GeminiService {
 
   // Provide the key at build/run time, for example:
   // flutter run --dart-define=GOOGLE_API_KEY=your_key_here
-  static const apiKey = String.fromEnvironment(
-    'GOOGLE_API_KEY',
-    defaultValue: 'AQ.Ab8RN6I4w8bSWbvFJ1-enN9c7GANxbiyrYk_2waDRHD5q-TTKA',
-  );
+  // static const apiKey = String.fromEnvironment(
+  //   'GOOGLE_API_KEY',
+  //   defaultValue: 'AQ.Ab8RN6I4w8bSWbvFJ1-enN9c7GANxbiyrYk_2waDRHD5q-TTKA',
+  // );
+  String apiKey = '';
 
   Future<Map<String, dynamic>> scanInvoice(File image) async {
     if (apiKey.isEmpty) {
